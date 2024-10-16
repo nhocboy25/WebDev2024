@@ -1,9 +1,10 @@
-from flask import flask # type: ignore
-from flask_sqlalchemy import SQLAlchemy # type: ignore
-from flask_login import UserMain # type: ignore
-import bcrypt
-app = flask(__name__)
-# hash a password
+from flask import Flask, render_template
 
-password = b"supersecret"
-salt = bcrypt.gensalt()
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
